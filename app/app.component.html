@@ -1,0 +1,28 @@
+﻿
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Book ID</th>
+            <th scope="col">Book Title</th>
+            <th scope="col">Book Year of Publish</th>
+            <th scope="col">Book Author</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th><input class="form-control" type="number" placeholder="ID" (keyup)="status = 'id';value = inputid.value;"#inputid>
+            </th>
+            <th><input  class="form-control" type="text" placeholder="Book Title" (keyup)="status = 'title'; value = inputtitle.value; " #inputtitle></th>
+            <th><input  class="form-control" type="number" placeholder="Publish Year" (keyup)="status = 'year'; value = inputyear.value;" #inputyear>
+            </th>
+            <th><input  class="form-control" type="text" placeholder="Book Author" (keyup)="status = 'author'; value = inputauthor.value;" #inputauthor>
+            </th>
+        </tr>
+        <tr *ngFor="let data of (temp | filtering: status: value)">
+            <td>{{data.id}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.year}}</td>
+            <td>{{data.author}}</td>
+        </tr>
+    </tbody>
+</table>
